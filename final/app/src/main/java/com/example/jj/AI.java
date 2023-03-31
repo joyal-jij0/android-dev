@@ -1,4 +1,4 @@
-package com.example.javaai;
+package com.example.jj;
 
 import android.content.pm.PackageManager;
 import android.media.AudioFormat;
@@ -12,9 +12,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-public class MainActivity extends AppCompatActivity {
+class AIActivity extends AppCompatActivity {
 
-    private static final int THRESHOLD = 2200;  // adjust this to set the minimum sound level to trigger the event
+    private static final int THRESHOLD = 5000;  // adjust this to set the minimum sound level to trigger the event
     private static final int SAMPLE_RATE = 44100;
     private static final int BUFFER_SIZE = 1024;
     private static final int CHANNEL_CONFIG = AudioFormat.CHANNEL_IN_MONO;
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     rms = Math.sqrt(rms / audioBuffer.length);
 
                     if (rms > THRESHOLD) {
-                        mHandler.post(() -> Toast.makeText(MainActivity.this, "SHOUT DETECTED!", Toast.LENGTH_SHORT).show());
+                        mHandler.post(() -> Toast.makeText(AIActivity.this, "SHOUT DETECTED!", Toast.LENGTH_SHORT).show());
                     }
 
                     mHandler.postDelayed(this, 1000);
